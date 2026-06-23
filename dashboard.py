@@ -25,7 +25,7 @@ OUTPUT_FILE      = "index.html"
 
 NOME_CLIENTE     = "Quest"
 LOGO_LETRA       = "Q"
-COR_ACENTO       = "#AD96DC"
+COR_ACENTO       = "#000000"
 
 LANCAMENTO_COD   = ""        # filtra campanhas; "" = ver tudo
 USAR_PESQUISA    = False            # False = oculta aba Pesquisa
