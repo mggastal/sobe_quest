@@ -40,7 +40,6 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .sb-footer{padding:10px 16px 12px;border-top:1px solid rgba(255,255,255,.05);display:flex;flex-direction:column;gap:5px;}
 .sb-footer span{font-size:10px;color:rgba(255,255,255,.25);}
 .sb-footer-dev{font-size:10px;color:rgba(255,255,255,.35);font-weight:600;letter-spacing:.3px;}
-.sb-footer-conf{font-size:9px;color:rgba(255,255,255,.18);line-height:1.4;margin-top:2px;font-style:italic;}
 
 /* TOPBAR — sticky obrigatório */
 .main{display:flex;flex-direction:column;overflow-x:hidden;}
@@ -209,6 +208,14 @@ details.desk-only{display:block!important;}
   .seg-card{overflow-x:auto!important;}
   .daily-side{flex-direction:row;gap:12px;border-right:none;border-bottom:1px solid var(--border);}
 }
+.page-footer{background:#f0f2f7;border-top:1px solid rgba(0,0,0,.07);padding:18px 24px;display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:auto;}
+[data-theme="dark"] .page-footer{background:#0d1220;border-top-color:rgba(255,255,255,.06);}
+.page-footer img{height:28px;opacity:.7;}
+[data-theme="dark"] .page-footer img{filter:brightness(0) invert(1);opacity:.35;}
+.page-footer-txt{font-size:11px;color:#9ca3af;}
+.page-footer-txt strong{font-weight:700;color:#6b7280;}
+[data-theme="dark"] .page-footer-txt{color:#4b5563;}
+[data-theme="dark"] .page-footer-txt strong{color:#6b7280;}
 </style>
 </head>
 <body>
@@ -243,7 +250,6 @@ details.desk-only{display:block!important;}
   <div class="sb-footer">
     <span id="sbAtual">--/--/---- · via planilha</span>
     <span class="sb-footer-dev">Desenvolvido por Sobé Estratégias</span>
-    <span class="sb-footer-conf">Dados confidenciais. Uso restrito ao cliente. Não compartilhe sem autorização prévia da Sobé Estratégias.</span>
   </div>
 </aside>
 
@@ -448,6 +454,10 @@ details.desk-only{display:block!important;}
     </div>
 
   </div>
+  <footer class="page-footer">
+    <img src="sobe.png" alt="Sobé Estratégias" onerror="this.style.display='none'">
+    <span class="page-footer-txt">Desenvolvido por <strong>Sobé Estratégias</strong></span>
+  </footer>
 </main>
 </div>
 
