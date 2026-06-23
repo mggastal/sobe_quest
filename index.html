@@ -3,31 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<link rel="icon" type="image/png" href="logo.png">
-<script>
-(function(){
-  const img=new Image();
-  img.onload=function(){
-    const c=document.createElement('canvas');
-    c.width=img.width; c.height=img.height;
-    const ctx=c.getContext('2d');
-    // Fundo branco
-    ctx.fillStyle='#ffffff';
-    ctx.fillRect(0,0,c.width,c.height);
-    ctx.drawImage(img,0,0);
-    // Forçar pixels para preto preservando transparência
-    const d=ctx.getImageData(0,0,c.width,c.height);
-    for(let i=0;i<d.data.length;i+=4){
-      if(d.data[i+3]>10){ d.data[i]=0;d.data[i+1]=0;d.data[i+2]=0; }
-    }
-    ctx.putImageData(d,0,0);
-    const link=document.querySelector("link[rel='icon']");
-    if(link) link.href=c.toDataURL('image/png');
-  };
-  img.crossOrigin='anonymous';
-  img.src='logo.png';
-})();
-</script>
+<link rel="icon" type="image/png" href="sobe.png">
 <title id="pageTab">Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
