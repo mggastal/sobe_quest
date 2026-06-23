@@ -222,7 +222,7 @@ details.desk-only{display:block!important;}
       <a href="#" class="sb-item" id="sbDiario" onclick="goPage('diario',this);return false;"><span class="ico">📊</span>Métricas Diárias<span class="sb-dot" style="background:#1877f2"></span></a>
       <a href="#" class="sb-item" id="sbMetaHist" onclick="goPage('meta-hist',this);return false;"><span class="ico">📅</span>Dados Históricos</a>
     </div>
-    <div class="sb-platform-group" style="margin-top:8px">
+    <div class="sb-platform-group sb-google-group" style="margin-top:8px">
       <div class="sb-platform-hd">
         <div class="sb-platform-icon" style="background:linear-gradient(135deg,#fbbc04,#ea4335)">G</div>
         <span class="sb-platform-lbl">Google Ads</span>
@@ -369,7 +369,7 @@ details.desk-only{display:block!important;}
         <div class="sec-hd">Top Palavras-chave</div>
         <div class="tc" id="gKeywords"></div>
       </div>
-      <div class="section" style="margin-top:16px">
+      <div class="section" style="margin-top:16px" id="gSegSection">
         <div class="sec-hd">Segmentação</div>
         <div class="g2">
           <div><div class="seg-ttl">Gênero</div><div class="seg-card" id="gGender"></div></div>
@@ -454,21 +454,30 @@ const META_BD = {"lct": {"1": {"age": [], "gender": [], "platform": []}, "7": {"
 const META_MONTHLY = {"lbl": ["Set/25", "Out/25", "Nov/25", "Dez/25", "Jan/26", "Fev/26", "Mar/26", "Abr/26", "Mai/26", "Jun/26"], "totalS": [7570.05, 7780.67, 8915.5, 2134.13, 557.99, 4086.9, 8144.52, 9173.29, 7452.94, 6298.94], "totalL": [257, 253, 291, 51, 31, 109, 232, 254, 221, 165], "cplG": [29.46, 30.75, 30.64, 41.85, 18.0, 37.49, 35.11, 36.12, 33.72, 38.18], "cpmG": [13.68, 13.75, 13.37, 15.16, 15.88, 26.96, 25.7, 32.18, 33.1, 40.17], "ctrG": [0.49, 0.65, 0.56, 0.46, 0.9, 0.59, 0.5, 0.62, 0.77, 1.01], "camps": [{"n": "DOT [GERAÇÃO DE LEADS]", "spend": 897.91, "leads": 25, "imp": 39737, "lc": 274}, {"n": "Mantiqueira [GERAÇÃO DE LEADS]", "spend": 1821.34, "leads": 77, "imp": 91810, "lc": 626}, {"n": "Porto Príncipe [GERAÇÃO DE LEADS]", "spend": 1939.83, "leads": 70, "imp": 107227, "lc": 723}, {"n": "[Mantiqueira] [Alcance] TOPO", "spend": 263.19, "leads": 0, "imp": 180437, "lc": 118}, {"n": "[Mantiqueira] [Conversão] MEIO", "spend": 1495.77, "leads": 46, "imp": 67948, "lc": 552}, {"n": "[Mantiqueira] [Remarketing]", "spend": 657.96, "leads": 23, "imp": 27700, "lc": 168}, {"n": "[Quinta do Douro] [Cobertura]", "spend": 494.05, "leads": 16, "imp": 38679, "lc": 256}, {"n": "DOT [GERAÇÃO DE LEADS]", "spend": 2314.12, "leads": 28, "imp": 88537, "lc": 825}, {"n": "Mantiqueira [GERAÇÃO DE LEADS]", "spend": 2275.72, "leads": 107, "imp": 219698, "lc": 1422}, {"n": "Porto Príncipe [GERAÇÃO DE LEADS]", "spend": 860.68, "leads": 21, "imp": 49788, "lc": 285}, {"n": "[Mantiqueira] [Alcance] TOPO", "spend": 86.52, "leads": 0, "imp": 65740, "lc": 50}, {"n": "[Mantiqueira] [Conversão] MEIO", "spend": 1480.22, "leads": 69, "imp": 95857, "lc": 830}, {"n": "[Mantiqueira] [Remarketing]", "spend": 763.41, "leads": 28, "imp": 46116, "lc": 284}, {"n": "DOT [GERAÇÃO DE LEADS]", "spend": 4069.77, "leads": 141, "imp": 278727, "lc": 1570}, {"n": "Mantiqueira [GERAÇÃO DE LEADS]", "spend": 3751.53, "leads": 115, "imp": 337648, "lc": 1786}, {"n": "Porto Príncipe [GERAÇÃO DE LEADS]", "spend": 1094.2, "leads": 35, "imp": 50680, "lc": 360}, {"n": "DOT [GERAÇÃO DE LEADS]", "spend": 1690.86, "leads": 39, "imp": 117358, "lc": 454}, {"n": "Porto Príncipe [GERAÇÃO DE LEADS]", "spend": 443.27, "leads": 12, "imp": 23437, "lc": 187}, {"n": "DOT [GERAÇÃO DE LEADS]", "spend": 73.22, "leads": 1, "imp": 4154, "lc": 13}, {"n": "Mantiqueira_Fechamento", "spend": 118.74, "leads": 8, "imp": 9925, "lc": 108}, {"n": "Porto Príncipe [GERAÇÃO DE LEADS]", "spend": 366.03, "leads": 22, "imp": 21068, "lc": 195}, {"n": "Mantiqueira_Fechamento", "spend": 167.85, "leads": 9, "imp": 18276, "lc": 170}, {"n": "SOBE-06FEV26-LEADS-DOT", "spend": 2076.33, "leads": 52, "imp": 75394, "lc": 344}, {"n": "SOBE-06FEV26-LEADS-MANTIQUEIRA", "spend": 1694.08, "leads": 47, "imp": 52949, "lc": 355}, {"n": "SOBE-06FEV26-LEADS-STUDIOS", "spend": 148.64, "leads": 1, "imp": 4953, "lc": 20}, {"n": "SOBE-06FEV26-LEADS-DOT", "spend": 2500.84, "leads": 62, "imp": 80221, "lc": 375}, {"n": "SOBE-06FEV26-LEADS-MANTIQUEIRA", "spend": 5301.91, "leads": 164, "imp": 230236, "lc": 1157}, {"n": "SOBE-06FEV26-LEADS-STUDIOS", "spend": 341.77, "leads": 6, "imp": 6497, "lc": 49}, {"n": "SOBE-06FEV26-LEADS-DOT", "spend": 4478.75, "leads": 97, "imp": 136632, "lc": 675}, {"n": "SOBE-06FEV26-LEADS-MANTIQUEIRA", "spend": 4462.8, "leads": 152, "imp": 144010, "lc": 1014}, {"n": "SOBE-06FEV26-LEADS-STUDIOS", "spend": 231.74, "leads": 5, "imp": 4379, "lc": 77}, {"n": "SOBE-06FEV26-LEADS-DOT", "spend": 3613.31, "leads": 92, "imp": 96685, "lc": 599}, {"n": "SOBE-06FEV26-LEADS-MANTIQUEIRA", "spend": 3581.96, "leads": 119, "imp": 123481, "lc": 1074}, {"n": "SOBE-06FEV26-LEADS-STUDIOS", "spend": 257.67, "leads": 10, "imp": 4975, "lc": 59}, {"n": "SOBE-06FEV26-LEADS-DOT", "spend": 3086.14, "leads": 69, "imp": 68331, "lc": 529}, {"n": "SOBE-06FEV26-LEADS-MANTIQUEIRA", "spend": 3063.19, "leads": 96, "imp": 86300, "lc": 1033}, {"n": "SOBE-06FEV26-LEADS-STUDIOS", "spend": 149.61, "leads": 0, "imp": 2188, "lc": 20}]};
 const PESQUISA = false;
 // Google Ads
-const GOOGLE_DAILY = {"days": [], "spend": [], "conversions": [], "cpa": [], "ctr": [], "cpc": []};
-const GOOGLE_KPIS = {};
-const GOOGLE_CAMPS = {};
-const GOOGLE_KW = {};
-const GOOGLE_BD = {};
-const GOOGLE_MONTHLY = {"lbl": [], "totalS": [], "totalConv": [], "cpaG": [], "cpcG": [], "ctrG": [], "camps": []};
+const GOOGLE_DAILY = {"days": ["27/08"], "spend": [0.0], "conversions": [0.0], "cpa": [null], "ctr": [null], "cpc": [null]};
+const GOOGLE_KPIS = {"1": {"spend": 0, "conversions": 0, "clicks": 0, "impressions": 0, "cpa": null, "ctr": null, "cpc": null}, "7": {"spend": 0, "conversions": 0, "clicks": 0, "impressions": 0, "cpa": null, "ctr": null, "cpc": null}, "14": {"spend": 0, "conversions": 0, "clicks": 0, "impressions": 0, "cpa": null, "ctr": null, "cpc": null}, "30": {"spend": 0, "conversions": 0, "clicks": 0, "impressions": 0, "cpa": null, "ctr": null, "cpc": null}, "all": {"spend": 0.0, "conversions": 0.0, "clicks": 0, "impressions": 0, "cpa": null, "ctr": null, "cpc": null}};
+const GOOGLE_CAMPS = {"1": [], "7": [], "14": [], "30": [], "all": []};
+const GOOGLE_KW = {"1": [], "7": [], "14": [], "30": [], "all": []};
+const GOOGLE_BD = {"1": {"age": [], "gender": []}, "7": {"age": [], "gender": []}, "14": {"age": [], "gender": []}, "30": {"age": [], "gender": []}, "all": {"age": [], "gender": []}};
+const GOOGLE_MONTHLY = {"lbl": ["Ago/25"], "totalS": [0.0], "totalConv": [0.0], "cpaG": [null], "cpcG": [null], "ctrG": [null], "camps": []};
 const GOOGLE_RAW = [];
+// ═══ CONFIG FUNIL & MÓDULOS ═══
+const USAR_GOOGLE = false;
+const FUNIL_IMPRESSOES = true;
+const FUNIL_LINK_CLICKS = true;
+const FUNIL_PAGE_VIEW = false;
+const FUNIL_LEADS = true;
+
 // SEO
+const MOEDA_SIMBOLO = "R$";
+const MOEDA_COD = "BRL";
 
 // ═══ CONFIG ═══
 const LANCAMENTO_COD='';
 const NOME_CLIENTE='Quest';
 const LOGO_LETRA='Q';
 const COR_ACENTO='#000000';
-const CPL_BOM=35.0;
+const CPL_BOM=40.0;
 const CPL_MEDIO=45.0;
 const CTR_BOM=0.6;
 const CTR_MEDIO=0.4;
@@ -485,7 +494,14 @@ let chartMode='conversoes'; // 'conversoes' | 'reconhecimento' | 'engajamento'
 let pesFilters={};
 
 // ═══ UTILS ═══
-const fR=v=>(v==null||isNaN(v))?'—':'R$'+Number(v).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+// Formata moeda usando MOEDA_SIMBOLO e locale correto para o cliente
+function fR(v){
+  if(v==null||isNaN(v)) return '—';
+  const locale=MOEDA_COD==='USD'?'en-US':MOEDA_COD==='EUR'?'de-DE':'pt-BR';
+  const n=Number(v).toLocaleString(locale,{minimumFractionDigits:2,maximumFractionDigits:2});
+  if(MOEDA_COD==='EUR') return n+'€';
+  return MOEDA_SIMBOLO+n;
+}
 const fN=v=>v==null?'—':Number(v).toLocaleString('pt-BR');
 const fP=v=>v==null?'—':Number(v).toFixed(2)+'%';
 const r2=v=>Math.round(v*100)/100;
@@ -600,17 +616,38 @@ function hexA(hex,a){return hex+Math.round(a*255).toString(16).padStart(2,'0');}
 
 function buildFunnel(mk){
   if(!mk) return;
-  const steps=[
-    {lbl:'Impressões',  val:mk.impressions,  color:hexA(FUNIL_COLOR,1.0)},
-    {lbl:'Link Clicks', val:mk.link_clicks,  color:hexA(FUNIL_COLOR,0.75)},
-    {lbl:'Page Views',  val:mk.page_view,    color:hexA(FUNIL_COLOR,0.50)},
-    {lbl:'Leads',       val:mk.leads,        color:FUNIL_GREEN},
+  // Montar etapas ativas conforme configuração
+  const allSteps=[
+    {key:'imp', lbl:'Impressões', val:mk.impressions, color:hexA(FUNIL_COLOR,1.0),   active:FUNIL_IMPRESSOES},
+    {key:'lc',  lbl:'Link Clicks',val:mk.link_clicks, color:hexA(FUNIL_COLOR,0.75),  active:FUNIL_LINK_CLICKS},
+    {key:'pv',  lbl:'Page Views', val:mk.page_view,   color:hexA(FUNIL_COLOR,0.50),  active:FUNIL_PAGE_VIEW},
+    {key:'ld',  lbl:'Leads',      val:mk.leads,       color:FUNIL_GREEN,              active:FUNIL_LEADS},
   ];
-  const rates=[
-    {lbl:'CTR',           val:mk.ctr,           bom:CTR_BOM,      medio:CTR_MEDIO},
-    {lbl:'Connect Rate',  val:mk.connect_rate,  bom:CR_BOM,       medio:CR_MEDIO},
-    {lbl:'Taxa Conversão (Lead/PV)', val:mk.tx_conv, bom:TX_CONV_BOM, medio:TX_CONV_MEDIO},
-  ];
+  const steps=allSteps.filter(s=>s.active);
+  // Calcular taxas entre etapas ativas consecutivas
+  const rateLabels={
+    'imp->lc': {lbl:'CTR',                       bom:CTR_BOM,      medio:CTR_MEDIO},
+    'lc->pv':  {lbl:'Connect Rate',              bom:CR_BOM,       medio:CR_MEDIO},
+    'pv->ld':  {lbl:'Taxa Conversão (Lead/PV)',  bom:TX_CONV_BOM,  medio:TX_CONV_MEDIO},
+    'lc->ld':  {lbl:'Taxa Conversão (Lead/LC)',  bom:TX_CONV_BOM,  medio:TX_CONV_MEDIO},
+    'imp->pv': {lbl:'Taxa PV/Imp',               bom:CR_BOM,       medio:CR_MEDIO},
+    'imp->ld': {lbl:'Taxa Lead/Imp',             bom:TX_CONV_BOM,  medio:TX_CONV_MEDIO},
+  };
+  // Calcular valores das taxas entre etapas consecutivas ativas
+  const rateVals={
+    'imp->lc': mk.ctr,
+    'lc->pv':  mk.connect_rate,
+    'pv->ld':  mk.tx_conv,
+    'lc->ld':  mk.link_clicks>0?r2(mk.leads/mk.link_clicks*100):null,
+    'imp->pv': mk.impressions>0?r2(mk.page_view/mk.impressions*100):null,
+    'imp->ld': mk.impressions>0?r2(mk.leads/mk.impressions*100):null,
+  };
+  const rates=[];
+  for(let i=0;i<steps.length-1;i++){
+    const key=steps[i].key+'->'+steps[i+1].key;
+    const meta=rateLabels[key]||{lbl:steps[i].lbl+' → '+steps[i+1].lbl,bom:TX_CONV_BOM,medio:TX_CONV_MEDIO};
+    rates.push({lbl:meta.lbl,val:rateVals[key]??null,bom:meta.bom,medio:meta.medio});
+  }
 
   const maxOther=Math.max(mk.link_clicks||1,mk.page_view||1,mk.leads||1,1);
   const widths=steps.map((s,i)=>i===0?100:Math.max(12,Math.round((s.val||0)/maxOther*88)));
@@ -1650,6 +1687,12 @@ function renderGoogle(){
   }
   gSegTable('gGender', gbd.gender, 'Gênero');
   gSegTable('gAge',    gbd.age,    'Faixa Etária');
+  // Ocultar seção se não há dados em nenhum breakdown
+  const gSegSec=document.getElementById('gSegSection');
+  if(gSegSec){
+    const temDados=gbd.gender?.length||gbd.age?.length;
+    gSegSec.style.display=temDados?'':'none';
+  }
 }
 
 function toggleGCamp(cid, camp){
@@ -2043,6 +2086,14 @@ window.addEventListener('resize', ajustarPaddingContent);
   } else {
     if(sbP) sbP.style.display='none';
     if(pgP) pgP.style.display='none';
+  }
+  // Google: mostrar só se ativo
+  if(!USAR_GOOGLE){
+    document.querySelectorAll('.sb-google-group').forEach(el=>el.style.display='none');
+    const pgG=document.getElementById('page-google');
+    if(pgG) pgG.style.display='none';
+    const pgGH=document.getElementById('page-google-hist');
+    if(pgGH) pgGH.style.display='none';
   }
   renderMeta();
   ajustarPaddingContent();
