@@ -300,10 +300,7 @@ def meta_breakdowns(df):
     # Soma de todas as colunas de conversão disponíveis no breakdown
     # Adicione Action FB Pixel Custom (Offsite Conversion) nas abas do Sheets para incluir
     CONV_COLS_BD = [
-        "Action FB Pixel Custom (Offsite Conversion)",
-        "Action Messaging Conversations Started (Onsite Conversion)",
-        "Action Leads",
-        "Conversion Contact Total",
+        "Action Leadgen Grouped",
     ]
     def seg(agg, dim):
         agg=agg[agg["spend"]>0].copy()
