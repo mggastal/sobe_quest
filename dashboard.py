@@ -20,7 +20,7 @@ COR_ACENTO       = "#000000"
 
 LANCAMENTO_COD   = ""
 USAR_PESQUISA    = False
-USAR_GOOGLE      = False
+USAR_GOOGLE      = True
 
 FUNIL_IMPRESSOES  = True
 FUNIL_LINK_CLICKS = True
